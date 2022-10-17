@@ -1,0 +1,22 @@
+this helps you calculate the value of your staking awards, if you use coinbase prime.
+
+How to use. Here is an example for CELO:
+1. download history for your tokens:
+  cd py
+  python3 -mvenv .venv
+  .venv/bin/activate
+  pip install -r requirements.txt
+  ./download_historical_pricing.py --start_date=2021-01-01 --end_date=2021-12-31 --coin=CELO > /tmp/celo_history.csv
+
+2. go to https://prime.coinbase.com/portfolio/YOUR-ID_HERE/activity/activities and download all CSVs
+   find the "transactions" csv in your download directory and move it to a place, e.g. /tmp and remove all spaces from the filename
+   mv "/.../transactions whatever here.csv" /tmp/transactions.csv
+
+
+3. make sure you have installed sqlite3
+
+4. ./calculate_rewards.sh celo_history.csv transactions.csv CGLD
+
+   NOTE: celo is CGLD for some reason in coinbase, but CELO in CG
+
+  
