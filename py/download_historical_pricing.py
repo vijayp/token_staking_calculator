@@ -46,9 +46,10 @@ def output_daterange(coin, currency, start_date, end_date):
         try:
             price = fetch(coin, day, currency)
         except:
-            price = 'ERR'
+            price = 0.0
         print('%s, %s' % (day.strftime(r'%Y-%m-%d'), price))
 
 if __name__ == '__main__':
     args = parser.parse_args()
+    print('date,price')
     output_daterange(args.coin, args.currency, args.start_date, args.end_date)
